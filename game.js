@@ -1259,7 +1259,7 @@ function startFromStartPage(){
   let diff = parseInt(document.getElementById('start-diff').value);
   let provBtn = document.querySelector('#start-prov-grid .prov-btn.selected');
   let prov = provBtn ? parseInt(provBtn.dataset.val) : 1;
-  let count = clampInt(parseInt(document.getElementById('start-stu').value),3,10);
+  let count = clampInt(parseInt(document.getElementById('start-stu').value),-1,1000);
   
   try {
     sessionStorage.setItem('oi_game_active_session', 'true');
@@ -1409,7 +1409,7 @@ window.onload = ()=>{
     if(qs && qs.get('new') === '1'){
       const diff = clampInt(parseInt(qs.get('d')||2),1,3);
       const prov = clampInt(parseInt(qs.get('p')||1),1,Object.keys(PROVINCES).length);
-      const count = clampInt(parseInt(qs.get('c')||5),3,10);
+      const count = clampInt(parseInt(qs.get('c')||5),-1,1000);
       
       const isDaily = qs.get('daily') === '1';
       const seed = qs.get('seed') ? parseInt(qs.get('seed')) : null;
